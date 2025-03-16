@@ -1,0 +1,253 @@
+/* ===== Анимированный фон ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(-45deg, #004d00, #003366, #006666, #004d00);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s infinite alternate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+
+/* Общие стили для кнопок */
+.game-play button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
+}
+
+/* ====== Правда (синий) ====== */
+.game-play button:nth-child(2) {
+    background: linear-gradient(45deg, #007bff, #00d9ff);
+    color: white;
+}
+
+.game-play button:nth-child(2):hover {
+    background: linear-gradient(45deg, #0056b3, #0094ff);
+    transform: scale(1.05);
+}
+
+/* ====== Действие (оранжевый) ====== */
+.game-play button:nth-child(3) {
+    background: linear-gradient(45deg, #ff8c00, #ff4500);
+    color: white;
+}
+
+.game-play button:nth-child(3):hover {
+    background: linear-gradient(45deg, #e07b00, #cc3700);
+    transform: scale(1.05);
+}
+
+/* ====== Ответил (зелёный) ====== */
+#answered-button {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+}
+
+#answered-button:hover {
+    background: linear-gradient(45deg, #1e7e34, #1c7430);
+    transform: scale(1.05);
+}
+
+/* ====== Не ответил (красный) ====== */
+#punish-button {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: white;
+}
+
+/* ====== Продолжить игру (фиолетовый) ====== */
+#continue-button {
+    background: linear-gradient(45deg, #6a0dad, #8a2be2);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: none;
+    margin: 10px;
+}
+
+#continue-button:hover {
+    background: linear-gradient(45deg, #5a009d, #6d1bb3);
+    transform: scale(1.05);
+}
+
+#punish-button:hover {
+    background: linear-gradient(45deg, #bd2130, #a71d2a);
+    transform: scale(1.05);
+}
+
+/* ====== Кнопка "Он выполнил наказание!" (зелёная) ====== */
+#punishment-done-button {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: none;
+    margin: 10px;
+}
+
+#punishment-done-button:hover {
+    background: linear-gradient(45deg, #1e7e34, #1c7430);
+    transform: scale(1.05);
+}
+
+
+/* ====== Анимация нажатия для всех кнопок ====== */
+.game-play button:active {
+    transform: scale(0.95);
+}
+
+/* Анимация фона */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* ===== Навигация ===== */
+.menu {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    gap: 15px;
+}
+
+.menu button {
+    padding: 10px 15px;
+    border: none;
+    background: white;
+    color: #333;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu button:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* ===== Контейнер игры ===== */
+.game-container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* ===== Кнопка "Играть" ===== */
+.play-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff0000, #ff7300);
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.play-button:hover {
+    background: linear-gradient(45deg, #ff7300, #ff0000);
+}
+
+/* ===== Блок с правилами ===== */
+.rules {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.rules h2 {
+    font-size: 24px;
+}
+
+.rules ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.rules li {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* ===== Подвал ===== */
+.footer {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #1E90FF;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 600px) {
+    .game-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .play-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .rules h2 {
+        font-size: 20px;
+    }
+
+    .rules li {
+        font-size: 14px;
+    }
+}

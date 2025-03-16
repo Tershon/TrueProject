@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бомба замедленного действия</title>
+    <link rel="stylesheet" href="bomb.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>💣 Бомба замедленного действия!</h1>
+        <p>Назови слово по теме за 5 секунд, иначе бомба взорвётся! 🚀</p>
+
+        <button onclick="startGame()">Начать игру</button>
+
+        <!-- Выбор количества игроков -->
+        <div id="player-setup" style="display:none;">
+            <h2>Сколько игроков?</h2>
+            <select id="player-count">
+                <option value="2">2 игрока</option>
+                <option value="3">3 игрока</option>
+                <option value="4">4 игрока</option>
+                <option value="5">5 игроков</option>
+            </select>
+            <button onclick="setPlayers()">Продолжить</button>
+        </div>
+
+        <!-- Ввод имён игроков -->
+        <div id="name-input" style="display:none;">
+            <h2 id="name-prompt">Введите имя игрока 1:</h2>
+            <input type="text" id="player-name" placeholder="Имя">
+            <button onclick="saveName()">Далее</button>
+        </div>
+
+        <!-- Выбор темы -->
+        <div id="category-setup" style="display:none;">
+            <h2>Выберите тему</h2>
+            <select id="category">
+                <option value="Животные">Животные</option>
+                <option value="Фрукты">Фрукты</option>
+                <option value="Страны">Страны</option>
+                <option value="Города">Города</option>
+                <option value="Фильмы">Фильмы</option>
+            </select>
+            <button onclick="startRound()">Начать!</button>
+        </div>
+
+        <!-- Основной игровой процесс -->
+        <div id="game-play" style="display:none;">
+            <h2 id="current-player"></h2>
+            <p>Категория: <span id="current-category"></span></p>
+            <p>Осталось времени: <span id="timer">5</span> сек</p>
+            <input type="text" id="word-input" placeholder="Ваше слово">
+            <button onclick="submitWord()">Ответить</button>
+        </div>
+
+        <!-- Итоговый экран -->
+        <div id="results-screen" style="display:none;">
+            <h2>🏆 Победитель!</h2>
+            <p id="winner"></p>
+            <button onclick="restartGame()">Играть заново</button>
+        </div>
+    </div>
+
+    <script src="bomb.js"></script>
+</body>
+</html>

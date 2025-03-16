@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай слово!</title>
+    <link rel="stylesheet" href="guess.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎯 Угадай слово!</h1>
+        <p>Один игрок загадывает слово, остальные задают вопросы и пытаются его отгадать!</p>
+
+        <button onclick="startGame()">Начать игру</button>
+
+        <!-- Форма для выбора количества игроков -->
+        <div id="player-setup" style="display:none;">
+            <h2>Сколько игроков?</h2>
+            <select id="player-count">
+                <option value="2">2 игрока</option>
+                <option value="3">3 игрока</option>
+                <option value="4">4 игрока</option>
+                <option value="5">5 игроков</option>
+            </select>
+            <button onclick="setPlayers()">Продолжить</button>
+        </div>
+
+        <!-- Форма для ввода имён -->
+        <div id="name-input" style="display:none;">
+            <h2 id="name-prompt">Введите имя игрока 1:</h2>
+            <input type="text" id="player-name" placeholder="Имя">
+            <button onclick="saveName()">Далее</button>
+        </div>
+
+        <!-- Основная игра -->
+        <div id="game-play" style="display:none;">
+            <h2 id="round-info">Раунд <span id="round-number">1</span> из 5</h2>
+            <p id="word-chooser"></p>
+            <button onclick="chooseWord()">Я загадал слово</button>
+
+            <div id="question-area" style="display:none;">
+                <p id="current-question">Игрок <span id="current-player-name"></span>, задай вопрос!</p>
+                <input type="text" id="question-input" placeholder="Ваш вопрос">
+                <button onclick="answerQuestion(true)">Да</button>
+                <button onclick="answerQuestion(false)">Нет</button>
+                <button onclick="tryGuess()">Попробовать угадать</button>
+            </div>
+
+            <p id="scoreboard"></p>
+        </div>
+
+        <!-- Итоги игры -->
+        <div id="results-screen" style="display:none;">
+            <h2>🏆 Итоги игры</h2>
+            <ul id="results-list"></ul>
+            <button onclick="restartGame()">Играть заново</button>
+        </div>
+    </div>
+
+    <script src="guess.js"></script>
+</body>
+</html>
